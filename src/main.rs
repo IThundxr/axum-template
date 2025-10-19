@@ -13,8 +13,7 @@ use crate::app::App;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    log::debug!("Loading .env");
-    dotenvy::dotenv()?;
+    dotenvy::dotenv().ok();
 
     log::debug!("Configuring tracing subscriber from env");
     let env_filter = EnvFilter::builder()

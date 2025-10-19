@@ -15,7 +15,7 @@ RUN cargo chef cook --release --recipe-path recipe.json
 COPY . .
 RUN cargo build --release --bin axum-template
 
-FROM gcr.io/distroless/static:latest AS runtime
+FROM debian:bookworm-slim AS runtime
 WORKDIR /app
 COPY --from=builder /app/target/release/axum-template /usr/bin
 ENTRYPOINT ["/usr/bin/axum-template"]
