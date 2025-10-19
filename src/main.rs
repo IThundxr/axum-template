@@ -6,9 +6,9 @@ use std::sync::Arc;
 use axum::http::StatusCode;
 use axum::Router;
 use axum::routing::get;
-use axum_login::tracing::level_filters::LevelFilter;
 use tower_http::trace::TraceLayer;
 use tracing_subscriber::EnvFilter;
+use tracing_subscriber::filter::LevelFilter;
 use crate::app::App;
 
 #[tokio::main]
